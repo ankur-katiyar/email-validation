@@ -23,6 +23,11 @@ def validate_email_address(email):
 start_time = datetime.now()
 # Use chunksize to read the CSV file in smaller chunks
 dfs = pd.read_csv("email_addresses.csv", chunksize=100)
+
+# Note for Spandan
+# comment out the above line doing read_csv and replace it with the following line
+# pd.read_sql(sql, conn, chunksize=100)
+
 with ThreadPoolExecutor() as executor:
     # Apply the validation function to each chunk in parallel
     fdfs = list(executor.map(validate_email_addresses_chunk, dfs))
