@@ -26,7 +26,7 @@ dfs = pd.read_csv("email_addresses.csv", chunksize=100)
 
 # Note for Spandan
 # comment out the above line doing read_csv and replace it with the following line
-# pd.read_sql(sql, conn, chunksize=100)
+# dfs = pd.read_sql(sql, conn, chunksize=100)
 
 with ThreadPoolExecutor() as executor:
     # Apply the validation function to each chunk in parallel
